@@ -1,3 +1,9 @@
+
+# Solution
+
+popen requires /bin/sh which doesn't provide. Add bash to your buildinputs then during buildImage link ${pkgs.bash}/bin/sh to /bin/sh .
+
+
 # Problem
 
 Current Env: Manjaro with nix.

@@ -20,6 +20,10 @@
 
     pkgs.dockerTools.buildImage {
         name = "test";
+        runAsRoot = ''
+            mkdir -p /bin/
+            ln -s ${pkgs.bash}/bin/sh /bin/
+        '';
         config = {
             Env = [ "PATH=${pkgs.coreutils}/bin:${pkgs.bash}/bin" ]; 
             Cmd = [ "${exe}/bin/main" ];
